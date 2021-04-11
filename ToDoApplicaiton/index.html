@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2>TODOLOST</h2>
+    <form v-on:submit.prevent>
+      <input type="text" v-model= "new_item">
+      <button v-on:click="addtodo" >Add</button>
+    </form>
+    <ul>
+      <li v-for="(tod,index) in todos">
+        <input type="checkbox" v-model="tod.isDone">
+        <span v-bind:class="{ done: tod.isDone===true }" >{{ tod.item }}</span>
+        <button v-on:click="deleteItem(index)">DELETE</button>
+      </li>
+    </ul>
+    <input type="text" v-bind:value="new_item">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <p>{{ number + 1 }}</p>
+    <p>{{ message.split('').reverse().join('') }}</p>
+    <p>{{ok ? 'YES':'NO'}}</p>
+    <p>{{ok ? message : ''}}</p>
+    <!-- <p>{{ if(ok===true){return message} }}</p> -->
+    <hr>
+    <p>{{ price | toUSD| numberFormat }}</p>
+    <input type="text" v-bind:value="price | toUSD | numberFormat">
+    <input type="text" v-model = message>
+    <hr>
+  <p>
+    {{ jpyPrice | toUSD | numberFormat }}
+  </p>
+  <hr>
+    <template>
+      <div>
+        <p>価格(税抜き): <input type="text" v-model:value="price"></p>
+        <p>価格(税込): <input type="text" v-bind:value =  computedPrice >--computed</p>
+        <p>ぼったくり価格: <input type="text" v-bind:value =  fixNumber(price) ></p>
+      </div>
+    </template>
+    <hr>
+    <input type="text" v-model= myColor >
+    <button v-on:click="addColors(myColor)">addColor</button>
+    <ul>
+      <li v-for= "color in colors">{{ color }}</li>
+    </ul>
+    <a :href="url" target="_blank">ki-taURL</a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

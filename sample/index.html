@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ message }}</p>
+    <input type="text" v-bind:value="message" />
+    <p v-if="toggle">hello</p>
+    <p v-show="toggle">hello</p>
+    <ol>
+      <li v-for="(color) in colors">{{ color }}</li>
+    </ol>
+    <hr>
+    <ul>
+      <li v-for="(value,key) in user">{{ key }} : {{ value }}</li>
+    </ul>
+    <hr>
+    <button v-on:click="onclick">PUSH ME</button>
+    <p>{{ now }}</p>
+    <hr>
+    <input type="text" v-model:value="url">
+    <input type="text" v-bind:value="message">
+    <p>
+      <a v-bind:href="url">youtube</a>
+    </p>
+      
+   </div>
+   <hr>
+   <div id="app2">
+     <hello-component></hello-component>
+     <hello-component></hello-component>
+     <hello-component></hello-component>
+   </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
