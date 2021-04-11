@@ -16,9 +16,30 @@
       Hello <span v-bind:class="[largeClass,dangerClass]">Array!</span>
     </p>
     <p>
-      Hello <span v-bind:class="classObject">classObject!</span>
+      Hello <span v-bind:class="[classObject]">classObject!</span>
+    </p>
+    <p>
+      Hello <span v-bind:class="[isLarge2 ? largeClass2  : '',dangerClass ]">三項演算子</span>
+    </p>
+    <p>
+      Hello <span v-bind:style="{ color: color, fontSize: fontSize }">stylesheet</span>
+    </p>
+    <p>
+      Hello <span v-bind:style="styleObject">styleObject</span>
     </p>
         
+    <p v-if="toggle">
+      YES!
+    </p>
+    <p v-else>
+      NO!
+    </p>
+    <p>
+      {{ count }}
+    </p>
+    <p><button v-on:click="clickHandler(2)">Click!</button></p>
+    <p><button v-on:click.once="clickNowTime()">ClickNowTime</button></p>
+    {{ message  }}
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="class_bind.js"></script>
