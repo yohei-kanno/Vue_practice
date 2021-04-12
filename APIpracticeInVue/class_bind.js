@@ -36,6 +36,9 @@ var app = new Vue({
     },
     clickNowTime: function(){
       this.message = new Date().toLocaleTimeString()
+    },
+    clear: function(){
+      this.message = ''
     }
   }
 })

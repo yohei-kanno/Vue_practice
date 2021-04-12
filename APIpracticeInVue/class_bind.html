@@ -40,6 +40,10 @@
     <p><button v-on:click="clickHandler(2)">Click!</button></p>
     <p><button v-on:click.once="clickNowTime()">ClickNowTime</button></p>
     {{ message  }}
+    <input type="text" v-on:keyup.27="clear" v-model="message">
+    <p>
+      {{ message }}
+    </p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="class_bind.js"></script>

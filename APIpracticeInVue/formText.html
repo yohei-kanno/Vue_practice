@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <p>
+      {{message}}
+    </p>
+    <input type="text" v-model:value="message" >
+    <pre>
+      {{ $data }}
+    </pre>
+    
+    <!-- チェックボックス単体処理 -->
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{ checked }}</label>
+    <p>
+      
+    <!-- チェックボックス複数処理 -->
+      <input type="checkbox" id="red" value="red" v-model="colors">
+      <label for="red">Red</label>
+      <input type="checkbox" id="green" value="green" v-model="colors">
+      <label for="green">green</label>
+      <input type="checkbox" id="blue" value= "blue" v-model="colors">
+      <label for="blue">blue</label>
+    </p>
+    <p>{{ colors }}</p>
+    
+    <!-- ラジオボタン単体処理 -->
+    <input type="radio" id="redInRadio" value="RED" v-model="color">
+    <label for="redInRadio">red
+    </label>
+    <input type="radio" id="blueInRadio" value="BLUE" v-model="color">
+    <label for="blueInRadio">blue
+    </label>
+    <input type="radio" id="greenInRadio" value="GREEN" v-model="color">
+    <label for="greenInRadio">green
+    </label>
+    <p>
+      {{ color }}
+    </p>
+    
+    <!-- ラジオボタン複数処理 -->
+    <select v-model="selected">
+      <option disabled value="">Please select one</option>
+      <option>Red</option>
+      <option>Green</option>
+      <option>Blue</option>
+    </select>
+    <p>{{ selected }}</p>
+    
+    <select v-model="colors2" multiple>
+      <option disabled value="">Please select one</option>
+      <option>Red</option>
+      <option>Green</option>
+      <option>Blue</option>
+    </select>
+    <p>{{ colors2 }}</p>
+    
+    
+    <!-- 修飾子lazy -->
+    <p>
+    <input type="text" v-model.lazy="message2">
+      {{ message2 }}
+    </p>
+    <p>
+      <!-- 修飾子trim -->
+      <input type="text" v-model.trim="message3">
+      <input type="text" v-model="message3">
+      {{ message3}}
+    </p>
+    
+    <!-- number修飾子 -->
+    <p>
+      <input type="text" v-model.number="age">
+      {{ age + 10 }}
+    </p>
+      
+  </div>
+      
+    
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="form_text.js"></script>
+</body>
+</html>
