@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+    {{ number + 2 }}
+    {{ toggle ? 'yes' : 'no' }}
+    {{ sayHi() }}
+    <a :[attribute]="url" target="_blank">google</a>
+    <a :href="url">google</a>
+    <a v-bind="{href: url,id: number}">google</a>
+    <a v-bind="hrefObject">google</a>
+    <a v-on:click.prevent href="https://google.com">google</a>
+    <p>
+      <button v-on:click="clickHundler()">ClickMe!</button>
+      <button v-on:[event]="clickHundler2(3)" >ClickMe!</button>
+    </p>
+    <p>{{clickNumber}}回クリックされました!</p>
+    
+    <p v-on:mousemove="changeMousePosition" class="box">マウスを乗せてください<span style="color: red" v-on:mousemove.stop.prevent>ここには反応したくない</span></p>
+    <p>X:{{x}}, Y:{{y}}</p>
+    <input type="text" v-on:keyup.enter.space="myAlert" :value="message">
+    <input type="text" v-model="message">
+    <p>{{ lessThanThree }}</p>
+    <p>{{ lessThanThreeMethod() }}</p>
+    <h1 v-bind:class="{ red: isActive, 'bg-blue': isActive }">Hello</h1>
+    <button v-on:click="isActiveChange">Switch!</button>
+    <h1 v-bind:class="[{ red: isActive },bg]">Hello</h1>
+    
+    <p v-if="ok">{{okNumber}}は3で割れます</p>
+    <p v-else="ok">{{okNumber}}は3で割れません</p>
+    <button v-on:click="clickOkNumberCount">clickOkNumberCount</button>
+    
+    <ul>
+      <li v-for="(fluit,index) in fluits">{{index}}:{{fluit}}</li>
+    </ul>
+    <ul>
+      <template v-for="(value,key) in fluitObject" >
+        <li>{{key}}は{{value}}円です</li>
+        <hr>
+      </template>
+    </ul>
+    <ul>
+      <li v-for="n in 10">{{n}}番目</li>
+    </ul>
+  </div>
+      
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
