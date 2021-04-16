@@ -1,19 +1,37 @@
 <template>
   <div>
-    <p>良いね({{ numb }})<button v-on:click="increment">+1</button> <button @click="decrement">-1</button></p>
+    <p>良いね({{ halfNumber  }})<button v-on:click="increment">+1</button> <button @click="decrement">-1</button></p>
   </div>
 </template>
   
 
 <script>
   export default{
-    props: ['numb'],
+    props: ['totalNumber',"testProps"],
+    // props: {
+    //   // totalNumber: Number
+    //   totalNumber:{
+    //     type: Number,
+    //     default: 20
+    //   },
+      // testProps:{
+      //   type: String,
+      //   require: true,
+      //   dafault: "hello"
+      // }
+    // },
+    computed:{
+      halfNumber(){
+        return this.totalNumber / 2
+      }
+    },
     methods:{
       increment(){
-        this.numb++
+        // this.totalNumber++
+        this.$emit("my-click",this.totalNumber + 1)
       },
       decrement(){
-        this.numb--
+        this.totalNumber--
       }
     }
   }
