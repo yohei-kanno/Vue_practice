@@ -1,29 +1,41 @@
 <template>
   <div>
+    <slot></slot>    
+    <!-- <slot :user="userkanno" text="TEXT"></slot> -->
     <!-- slotの中にhtmlを指定するとそれがデフォルトになる -->
-    <slot name="my-title"></slot>
-    {{headerText}}
-    <hr>
-    
+    <!-- <slot name="my-title" v-bind:user="user" text="TEXT"></slot> -->
+    <!-- <hr>
+    <p>{{headerText}}</p> -->
     <!-- 下のname="default"はなくてもOK -->
-    <slot name="default"></slot>
-    <hr>
-    <slot name = "my-number"></slot>
+    <!-- <slot name="default"></slot> -->
+    <!-- <hr>
+    <slot></slot>
+    <slot></slot> -->
+    <!-- <slot name = "my-number"></slot> -->
   </div>
 </template>
+    
 
 <script>
 export default {
-  props:["headerText"]
+  props:["headerText"],
+  
+  data(){
+    return{
+      userkanno: {
+        firstName: "kanno",
+        lastName: "youhei",
+        likeCount: "12"
+      }
+    }
+  },
+  methods:{
+    userInfo(){
+      return this.user
+    }
+  }
   }
 </script>
 
 <style scoped>
-/* 親でも子でcssは適用される */
-  div{
-    border: 2px solid blue;
-  }
-  h1{
-    color: red;
-  }
 </style>
