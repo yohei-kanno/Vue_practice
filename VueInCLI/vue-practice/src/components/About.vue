@@ -6,4 +6,9 @@
 </template>
 
 <script>
+  export default{
+    destroyed: function(){
+      console.log("destroyed!")
+    }
+  }
 </script>

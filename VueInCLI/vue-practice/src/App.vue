@@ -12,7 +12,7 @@
     <button v-on:click="currentComponent='Home' " class="btn btn-square">Home</button>
     <button v-on:click="currentComponent='About' " class="btn btn-square">About</button>
     <keep-alive>
-      <component v-bind:is=" currentComponent "></component>
+      <component v-bind:is="currentComponent "></component>
     </keep-alive>
     <div>
       <h2>EventForm</h2>
@@ -91,6 +91,8 @@
     </p>
     <p>{{eventData.location}}</p>
     
+    <p>{{ message }}</p>
+    <button v-on:click="say($event)">こんにちは</button>
   </div>
 </template>
 <script>
@@ -105,6 +107,7 @@
         number: 14,
         currentComponent: "Home",
         locations: ["Tokyo","Osaka","Chiba"],
+        message: "挨拶",
         eventData:{
           title: "",
           maxNumber: 0,
@@ -112,7 +115,8 @@
           detail: "",
           isPrivate: false,
           target: [],
-          location: "Tokyo"
+          location: "Tokyo",
+          
         }
       }
     },
@@ -136,6 +140,10 @@
       //   console.log(value)
       //   this.eventData.title = value
       // }
+      say(event){
+        console.log(event)
+        this.message = event
+      }
     }
 }
 </script>
@@ -151,6 +159,13 @@
     color: #fff;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
+    width: 50px;
+    height: 25px;
+    transition: width 0.3s, heigth 0.3s;
+   }
+   .btn-square:hover{
+     width:  100px;
+     height:  50px;
    }
   .btn-square:active{
     -webkit-transform: translateY(4px);
