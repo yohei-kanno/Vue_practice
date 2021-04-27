@@ -2,9 +2,16 @@
   <div style="padding: 5.5em;">
     <h2>トータル良いねの数は</h2>
     <h3>{{ number }}です</h3>
-    <LikeHeader>
+    <LikeHeader aisatu="aisatu">
+      <template v-slot:mySlot>
+        <h1>こんばんは！</h1>
+      </template>
       <h1>はじめまして</h1>
+      <template v-slot:aisatu>
+        <h2>こんにちは</h2>
+      </template>
     </LikeHeader>
+        
       
     <LikeNumber v-bind:total-number="number" @my-click="incrementNumber" @my-declick="decrementNumber">
     </LikeNumber>

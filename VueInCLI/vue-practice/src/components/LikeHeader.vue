@@ -1,6 +1,8 @@
 <template>
   <div>
-    <slot></slot>    
+    <slot></slot>  
+    <slot name="aisatu"></slot>  
+    <slot name="mySlot"></slot>
     <!-- <slot :user="userkanno" text="TEXT"></slot> -->
     <!-- slotの中にhtmlを指定するとそれがデフォルトになる -->
     <!-- <slot name="my-title" v-bind:user="user" text="TEXT"></slot> -->
@@ -18,14 +20,15 @@
 
 <script>
 export default {
-  props:["headerText"],
+  props:["headerText","aisatu"],
   
   data(){
     return{
       userkanno: {
         firstName: "kanno",
         lastName: "youhei",
-        likeCount: "12"
+        likeCount: "12",
+
       }
     }
   },
